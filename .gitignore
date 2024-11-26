@@ -1,0 +1,15 @@
+.turbo/
+node_modules/
+
+build/
+dist/
+
+.DS_Store
+
+.idea/
+
+.vscode/
+
+doc_build/
+
+coverage/
