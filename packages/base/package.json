@@ -1,0 +1,54 @@
+{
+  "name": "@snailuu/base",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "基础工具库",
+  "module": "./dist/index.esm.js",
+  "types": "'./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "default": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": "./dist/*"
+  },
+  "scripts": {
+    "build": "tsc && rollup -c"
+  },
+  "keywords": [
+    "snailuu",
+    "base",
+    "基础工具库"
+  ],
+  "author": {
+    "name": "snailuu",
+    "email": "snailuu@foxmail.com"
+  },
+  "files": [
+    "dist"
+  ],
+  "private": false,
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snailuu/toolbox",
+    "directory": "packages/base"
+  },
+  "clPublish": {
+    "checkDir": [
+      "src/**/*.ts"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/snailuu/toolbox/issues",
+    "email": "snailuu@foxmail.com"
+  },
+  "dependencies": {
+    "ms": "^2.1.3"
+  }
+}
