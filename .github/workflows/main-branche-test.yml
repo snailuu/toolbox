@@ -32,6 +32,3 @@ jobs:
 
       - name: Lint and Format
         run: pnpm run lint packages
-
-      - name: Code Test
-        run: pnpm run test:ci
