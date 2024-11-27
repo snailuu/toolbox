@@ -14,6 +14,15 @@
 - (T) 类型
 - -> 别名
 
+### v0.1.2
+
+新增
+
+- (D) utils
+  - getNow
+  - getRandomString
+  - sleepAsync
+
 ### v0.1.0
 
 新增
