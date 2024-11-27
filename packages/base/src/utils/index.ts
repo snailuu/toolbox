@@ -1,1 +1,1 @@
-export * from './funcHandler'
+export * from './funcHandler';
