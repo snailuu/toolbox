@@ -14,7 +14,28 @@
 - (T) 类型
 - -> 别名
 
-### v0.1.2
+
+
+### v0.0.3
+
+新增
+
+- (D) utils
+  - isNull
+  - isNaN
+  - isNumber
+  - isPromise
+- (D) commom
+  - (F) waring
+  - (CV) constant
+    - EMPTY
+    - STATIC_TYPE
+- (T) 
+  - SAllType
+
+
+
+### v0.0.2
 
 新增
 
@@ -23,7 +44,7 @@
   - getRandomString
   - sleepAsync
 
-### v0.1.0
+### v0.0.1
 
 新增
 
