@@ -1,4 +1,10 @@
-export type SAllType =
+export type TFunc<T extends any[], R = any> = (...args: T) => R;
+
+export type TAnyFunc = TFunc<any[]>;
+
+export type TArgsType<T> = T extends (...args: infer A) => any ? A : any[];
+
+export type TAllType =
   | 'string'
   | 'number'
   | 'boolean'
@@ -36,3 +42,7 @@ export type SAllType =
   | 'bigint64array'
   | 'biguint64array'
   | 'blob';
+
+export type GetArgs<F> = F extends (...args: infer A) => any ? A : [];
+
+export type GetReturnType<F> = F extends (...args: any[]) => infer R ? R : F;

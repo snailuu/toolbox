@@ -16,22 +16,46 @@
 
 
 
+### v0.0.4
+
+新增
+
+- (D) cirDep
+  - (F) getType
+- (D) types
+  - (T) TFunc
+  - (T) TAnyFunc
+  - (T) TArgsType
+  - (T) GetArgs
+  - (T) GetReturnType
+- (D) utils
+  - (F) debounce
+  - (F) throttle
+  - (F) isTrue
+  - (F) isFalse
+  - (F) isArray
+  - (F) isEmpty
+  - (F) isFile
+  - (F) isBlob
+
+
+
 ### v0.0.3
 
 新增
 
 - (D) utils
-  - isNull
-  - isNaN
-  - isNumber
-  - isPromise
+  - (F) isNull
+  - (F) isNaN
+  - (F) isNumber
+  - (F) isPromise
 - (D) commom
   - (F) waring
-  - (CV) constant
-    - EMPTY
-    - STATIC_TYPE
-- (T) 
-  - SAllType
+  - (D) constant
+    - (CV) EMPTY
+    - (CV) STATIC_TYPE
+- (D) types 
+  - (T) TAllType
 
 
 
@@ -40,9 +64,9 @@
 新增
 
 - (D) utils
-  - getNow
-  - getRandomString
-  - sleepAsync
+  - (F) getNow
+  - (F) getRandomString
+  - (F) sleepAsync
 
 ### v0.0.1
 

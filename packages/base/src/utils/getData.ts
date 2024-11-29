@@ -10,7 +10,7 @@ export const getRandomString = (len: number = 8): string => {
 
 export const getNow = () => {
   if (typeof performance !== 'undefined') {
-    return () => performance.now();
+    return performance.now();
   }
-  return () => Date.now();
+  return Date.now();
 };
