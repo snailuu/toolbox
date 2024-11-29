@@ -1,5 +1,5 @@
-import { debounce, getNow, sleep, throttle } from 'src/utils';
 import { it, describe, expectTypeOf, expect } from 'vitest';
+import { debounce, getNow, sleep, throttle } from '../src';
 
 describe('utils', () => {
   describe('funcHandler', () => {
