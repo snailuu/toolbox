@@ -1,8 +1,14 @@
-export type TFunc<T extends any[], R = any> = (...args: T) => R;
+export type TFunc<T extends unknown[], R = unknown> = (...args: T) => R;
 
 export type TAnyFunc = TFunc<any[]>;
 
-export type TArgsType<T> = T extends (...args: infer A) => any ? A : any[];
+export type TunknownFunc = TFunc<unknown[]>;
+
+export type TArgsType<T> = T extends (...args: infer A) => unknown ? A : unknown[];
+
+export type THeadType<T extends unknown[]> = T extends [infer H] ? H : T extends [infer H, ...unknown[]] ? H : never;
+
+export type TLastType<T extends unknown[]> = T extends [...unknown[], infer L] ? L : T extends [infer L] ? L : never;
 
 export type TAllType =
   | 'string'
@@ -43,6 +49,6 @@ export type TAllType =
   | 'biguint64array'
   | 'blob';
 
-export type GetArgs<F> = F extends (...args: infer A) => any ? A : [];
+export type GetArgs<F> = F extends (...args: infer A) => unknown ? A : [];
 
-export type GetReturnType<F> = F extends (...args: any[]) => infer R ? R : F;
+export type GetReturnType<F> = F extends (...args: unknown[]) => infer R ? R : F;

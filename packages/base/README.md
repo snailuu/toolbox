@@ -16,6 +16,25 @@
 
 
 
+### v0.0.5
+
+新增
+
+- （D) types
+  - (T) THeadType
+  - (T) TLastType
+-  (D) utils
+  - (T) GCArgs
+  - (T) CookieOptions
+  - (F) generateClassname
+  - (F) generateCokkieInfo
+
+修改
+
+- 将 `any` 类型修改为 `unknown` 类型
+
+
+
 ### v0.0.4
 
 新增
