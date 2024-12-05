@@ -1,5 +1,5 @@
 import { it, describe, expectTypeOf, expect } from 'vitest';
-import { debounce, getNow, sleep, throttle } from '../src';
+import { debounce, getNow, isIterable, sleep, throttle } from '../src';
 
 describe('utils', () => {
   describe('funcHandler', () => {
@@ -86,6 +86,29 @@ describe('utils', () => {
       expect(count).toBe(4);
       func3();
       expect(count).toBe(5);
+    });
+  });
+  describe('verfy', () => {
+    it('isIterable', () => {
+      expect(isIterable([])).toBe(true);
+      expect(isIterable({})).toBe(false);
+      expect(isIterable(null)).toBe(false);
+      expect(isIterable(undefined)).toBe(false);
+      expect(isIterable(1)).toBe(false);
+      expect(isIterable(new Map())).toBe(true);
+      expect(isIterable(new Set())).toBe(true);
+      expect(isIterable(new Promise(() => {}))).toBe(false);
+      expect(isIterable(new Date())).toBe(false);
+      const testGenerator = {
+        *[Symbol.iterator]() {
+          yield 1;
+          yield 2;
+          yield 3;
+        },
+      };
+      expect(isIterable(testGenerator)).toBe(true);
+      const testIterator = testGenerator[Symbol.iterator]();
+      expect(isIterable(testIterator)).toBe(true);
     });
   });
 });

@@ -59,3 +59,7 @@ export function isBlob() {
   }
   return (value: any): boolean => value instanceof Blob;
 }
+
+export function isIterable(value: unknown): value is Iterable<unknown> {
+  return typeof value === 'object' && value !== null && typeof value[Symbol.iterator] === 'function';
+}
