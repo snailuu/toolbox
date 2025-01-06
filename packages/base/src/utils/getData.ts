@@ -27,7 +27,7 @@ type GCArgs =
   | undefined
   | null;
 
-export function generateClassname(...args: GCArgs[]) {
+export function generateClassName(...args: GCArgs[]) {
   if (!args.length)
     return '';
   const className: string = args
@@ -36,7 +36,7 @@ export function generateClassname(...args: GCArgs[]) {
         return arg;
       }
       else if (Array.isArray(arg)) {
-        return generateClassname(...arg);
+        return generateClassName(...arg);
       }
       else if (typeof arg === 'object' && arg !== null) {
         return Object.keys(arg)
@@ -51,6 +51,10 @@ export function generateClassname(...args: GCArgs[]) {
     .replace(/\s+/g, ' ');
   return className.trimEnd();
 }
+/**
+ * @alias generateClassName
+ */
+export const gc = generateClassName;
 
 export interface CookieOptions {
   duration?: number; // 过期时间，单位为毫秒

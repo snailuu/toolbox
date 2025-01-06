@@ -1,5 +1,5 @@
-import { getType } from 'src/cirDep/getData';
-import { EMPTY } from 'src/common/constant';
+import { getType } from '$/cirDep/getData';
+import { EMPTY } from '$/common/constant';
 
 // * 判断值是否为空, 包含 undefined 和 null
 export function isNull(value: any): value is null {
