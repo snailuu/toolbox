@@ -7,7 +7,8 @@ export function isNull(value: any): value is null {
 }
 
 // * 如果给定值在被转换为数字后为 NaN 则返回值为 true；否则为 false
-export function isNaN(value: any): value is typeof NaN {
+export function isNaN(value: any): value is typeof Number.NaN {
+  // eslint-disable-next-line no-self-compare
   return typeof value === 'number' && value !== value;
 }
 
@@ -33,33 +34,39 @@ export function isPromise(value: any): value is Promise<any> {
 }
 
 export function isEmpty(value: any): boolean {
-  if (value === EMPTY) return true;
-  if (typeof value === 'boolean') return false;
-  if (typeof value === 'number') return isNaN(value) || false;
+  if (value === EMPTY)
+    return true;
+  if (typeof value === 'boolean')
+    return false;
+  if (typeof value === 'number')
+    return isNaN(value) || false;
   if (typeof value === 'object' && value !== null) {
     const type = getType(value);
-    if (['set', 'map', 'weakmap', 'weakset'].includes(type)) return value.size === 0;
+    if (['set', 'map', 'weakmap', 'weakset'].includes(type))
+      return value.size === 0;
     return Object.keys(value).length === 0;
   }
   return isNull(value) || !value;
 }
 
 export function isFile() {
-  if (!File) return false;
-  if (File.prototype.isPrototypeOf) {
-    return (value: any): boolean => File.prototype.isPrototypeOf(value);
+  if (!File)
+    return false;
+  if (File.prototype) {
+    return (value: any): boolean => Object.prototype.isPrototypeOf.call(File.prototype, value);
   }
   return (value: any): boolean => value instanceof File;
 }
 
 export function isBlob() {
-  if (!Blob) return false;
-  if (Blob.prototype.isPrototypeOf) {
-    return (value: any): boolean => Blob.prototype.isPrototypeOf(value);
+  if (!Blob)
+    return false;
+  if (Blob.prototype) {
+    return (value: any): boolean => Object.prototype.isPrototypeOf.call(Blob.prototype, value);
   }
   return (value: any): boolean => value instanceof Blob;
 }
 
 export function isIterable(value: unknown): value is Iterable<unknown> {
-  return typeof value === 'object' && value !== null && typeof value[Symbol.iterator] === 'function';
+  return typeof value === 'object' && value !== null && typeof (value as any)[Symbol.iterator] === 'function';
 }

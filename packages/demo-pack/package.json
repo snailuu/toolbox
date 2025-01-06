@@ -1,0 +1,37 @@
+{
+  "name": "demo-pack",
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.14.4",
+  "description": "",
+  "author": {
+    "name": "snailuu",
+    "email": "snailuu@foxmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/snailuu/toolbox#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snailuu/toolbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/snailuu/toolbox/issues"
+  },
+  "keywords": [],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "stub": "unbuild --stub",
+    "build": "unbuild",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build && pnpm test"
+  }
+}

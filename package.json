@@ -1,67 +1,86 @@
 {
   "name": "@snailuu/toolbox",
-  "version": "0.0.2",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@9.14.4",
   "description": "小工具箱",
-  "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "publish": "turbo publish",
-    "test": "vitest --ui",
-    "test:ci": "vitest run",
-    "dev:doc": "turbo dev:doc",
-    "build:doc": "turbo build:doc",
-    "lint": "eslint --ext js,jsx,tsx,ts --fix",
-    "deploy": "node scripts/publish.mjs -c -s",
-    "prepare": "husky install"
-  },
-  "keywords": [],
   "author": {
     "name": "snailuu",
     "email": "snailuu@foxmail.com"
   },
   "license": "MIT",
-  "packageManager": "pnpm@9.5.0",
-  "lint-staged": {
-    "packages/**/*.{js,jsx,tsx,ts}": [
-      "npm run lint --fix",
-      "git add ."
-    ]
+  "homepage": "https://github.com/snailuu/toolbox#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snailuu/toolbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/snailuu/toolbox/issues"
+  },
+  "keywords": [
+    "toolbox",
+    "snailuu"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepare": "husky",
+    "lint": "eslint packages --fix",
+    "stub": "pnpm -r --filter=\"./packages/*\" --parallel run stub",
+    "build": "pnpm -r --filter=\"./packages/*\" run build",
+    "test": "vitest --coverage.enabled",
+    "release": "esno ./scripts/release.ts && pnpm -r --filter=\"./packages/*\" publish --no-git-checks",
+    "test:ci": "cross-env CI=true vitest run",
+    "gsp": "esno ./scripts/generate-sub-package.ts",
+    "dev:doc": "rspress dev",
+    "build:doc": "rspress build"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@rollup/plugin-alias": "^5.1.0",
-    "@rollup/plugin-commonjs": "^26.0.1",
-    "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "@rspress/shared": "^1.26.3",
-    "@types/node": "^20.14.9",
-    "@types/prettier": "^3.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
-    "@typescript-eslint/parser": "^7.15.0",
-    "@vitest/coverage-v8": "^2.0.5",
-    "@vitest/ui": "^2.0.5",
-    "argon2": "^0.40.3",
-    "chalk": "^5.3.0",
-    "commitlint": "^19.3.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-prettier": "^5.1.3",
-    "fast-glob": "^3.3.2",
-    "happy-dom": "^14.12.3",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.7",
-    "prettier": "^3.3.2",
+    "@antfu/eslint-config": "^3.12.0",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@rspress/plugin-playground": "^1.38.0",
+    "@rspress/plugin-preview": "^1.38.0",
+    "@types/ms": "^0.7.34",
+    "@types/node": "^22.10.2",
+    "@types/prompts": "^2.4.9",
+    "@vitest/browser": "^2.1.8",
+    "@vitest/coverage-istanbul": "2.1.8",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vitest/ui": "2.1.8",
+    "bumpp": "^9.9.1",
+    "chai": "^5.1.2",
+    "chalk": "^5.4.0",
+    "conventional-changelog-cli": "^5.0.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.17.0",
+    "eslint-plugin-format": "^0.1.3",
+    "esno": "^4.8.0",
+    "glob": "^11.0.0",
+    "happy-dom": "^15.11.7",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "playwright": "^1.49.1",
     "prompts": "^2.4.2",
-    "rollup": "^4.18.0",
-    "rollup-plugin-copy": "^3.5.0",
-    "rollup-plugin-typescript2": "^0.36.0",
-    "semver": "^7.6.2",
-    "tslib": "^2.6.3",
-    "turbo": "^2.0.6",
-    "typescript": "^5.5.3",
-    "vitest": "^2.0.5"
+    "rspress": "^1.38.0",
+    "rspress-plugin-file-tree": "^0.4.0",
+    "rspress-plugin-gh-pages": "^0.3.0",
+    "rspress-plugin-reading-time": "^0.3.0",
+    "typescript": "^5.7.2",
+    "unbuild": "^3.0.1",
+    "vitest": "^2.1.8"
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --cache --fix"
+    ]
   }
 }

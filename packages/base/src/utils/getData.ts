@@ -2,22 +2,23 @@ import ms from 'ms';
 
 import { isEmpty } from './verfy';
 
-export const getRandomString = (len: number = 8): string => {
-  const str = Math.random()
-    .toString(36)
-    .slice(2, len + 2);
-  if (str.length === len) {
-    return str;
+export function getRandomString(len = 8): string {
+  let result = '';
+  for (let curLen = 0; curLen < len; curLen = result.length) {
+    const str = Math.random()
+      .toString(36)
+      .slice(2, len + 2);
+    result += str.slice(0, len - curLen);
   }
-  return str + getRandomString(len - str.length);
-};
+  return result;
+}
 
-export const getNow = () => {
+export function getNow() {
   if (typeof performance !== 'undefined') {
     return performance.now();
   }
   return Date.now();
-};
+}
 
 type GCArgs =
   | string
@@ -27,18 +28,22 @@ type GCArgs =
   | null;
 
 export function generateClassname(...args: GCArgs[]) {
-  if (!args.length) return '';
-  const className = args
+  if (!args.length)
+    return '';
+  const className: string = args
     .map((arg) => {
       if (typeof arg === 'string') {
         return arg;
-      } else if (Array.isArray(arg)) {
+      }
+      else if (Array.isArray(arg)) {
         return generateClassname(...arg);
-      } else if (typeof arg === 'object' && arg !== null) {
+      }
+      else if (typeof arg === 'object' && arg !== null) {
         return Object.keys(arg)
-          .filter((key) => arg[key])
+          .filter(key => arg[key])
           .join(' ');
-      } else {
+      }
+      else {
         return '';
       }
     })
@@ -57,19 +62,23 @@ export interface CookieOptions {
 export function generateCokkieInfo(options: CookieOptions = {}) {
   const { duration, expiress, domain, maxAge, path } = options;
   let infoString = '';
-  if (isEmpty(options)) return infoString;
+  if (isEmpty(options))
+    return infoString;
   if (duration) {
     const date = new Date();
     date.setTime(date.getTime() + duration);
     infoString += `expires=${date.toUTCString()};`;
-  } else if (expiress) {
+  }
+  else if (expiress) {
     if (typeof expiress === 'string') {
       const date = new Date();
       date.setTime(date.getTime() + ms(expiress));
       infoString += `expires=${date.toUTCString()};`;
-    } else if (expiress instanceof Date) {
+    }
+    else if (expiress instanceof Date) {
       infoString += `expires=${expiress.toUTCString()};`;
-    } else {
+    }
+    else {
       throw new TypeError('exprires 必须是字符串或 Date (推荐使用Date)');
     }
   }

@@ -2,51 +2,50 @@
   "name": "@snailuu/base",
   "type": "module",
   "version": "0.0.5",
+  "private": false,
   "description": "基础工具库",
-  "module": "./dist/index.esm.js",
-  "types": "'./dist/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/index.esm.js",
-      "default": "./dist/index.umd.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./*": "./dist/*"
+  "author": {
+    "name": "snailuu",
+    "email": "snailuu@foxmail.com"
   },
-  "scripts": {
-    "build": "tsc && rollup -c"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snailuu/toolbox",
+    "directory": "packages/base"
+  },
+  "bugs": {
+    "url": "https://github.com/snailuu/toolbox/issues",
+    "email": "snailuu@foxmail.com"
   },
   "keywords": [
     "snailuu",
     "base",
     "基础工具库"
   ],
-  "author": {
-    "name": "snailuu",
-    "email": "snailuu@foxmail.com"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "default": "./dist/index.umd.js"
+    },
+    "./*": "./dist/*"
   },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
-  "private": false,
-  "license": "MIT",
+  "scripts": {
+    "stub": "unbuild --stub",
+    "build": "unbuild",
+    "test": "cross-env CI=true vitest run",
+    "prepublishOnly": "pnpm build && pnpm test"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/snailuu/toolbox",
-    "directory": "packages/base"
-  },
-  "clPublish": {
-    "checkDir": [
-      "src/**/*.ts"
-    ]
-  },
-  "bugs": {
-    "url": "https://github.com/snailuu/toolbox/issues",
-    "email": "snailuu@foxmail.com"
   },
   "dependencies": {
     "ms": "^2.1.3"
