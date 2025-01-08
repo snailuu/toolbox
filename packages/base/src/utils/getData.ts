@@ -1,6 +1,5 @@
 import ms from 'ms';
-
-import { isEmpty } from './verfy';
+import { isEmpty } from './verify';
 
 export function getRandomString(len = 8): string {
   let result = '';

@@ -16,6 +16,25 @@
 
   
 
+  ### v0.0.7
+
+  新增
+
+  - (D) verify
+    - (D) base
+      - (F) isUrl
+    - (D) array
+      - (F) isArrayLike
+      - (F) isArray
+    - (D) caniuse
+      - (F) caniuseCSSFeature
+      - (F) caniuse
+    - (D) function
+      - (F) isAsyncFunc
+      - (F) isConstructor
+
+  更新 `verify` 分类下的函数， `isXXX`  等函数能直接断言其数据类型
+
   ### v0.0.6
 
   新增
@@ -47,17 +66,17 @@
     - (T) CookieOptions
     - (F) generateClassname
     - (F) generateCokkieInfo
-
-  修改
-
-  - 将 `any` 类型修改为 `unknown` 类型
-
   
-
+  修改
+  
+  - 将 `any` 类型修改为 `unknown` 类型
+  
+  
+  
   ### v0.0.4
-
+  
   新增
-
+  
   - (D) cirDep
     - (F) getType
   - (D) types
@@ -94,20 +113,20 @@
       - (CV) STATIC_TYPE
   - (D) types 
     - (T) TAllType
-
   
-
+  
+  
   ### v0.0.2
-
+  
   新增
-
+  
   - (D) utils
     - (F) getNow
     - (F) getRandomString
     - (F) sleepAsync
-
+  
   ### v0.0.1
-
+  
   新增
-
+  
   - (F) sleep

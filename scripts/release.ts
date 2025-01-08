@@ -11,12 +11,26 @@ async function selectPackage(packages: string[]) {
     const { name, version } = packageJson;
     return { title: `${name} v${version}`, value: { name, cwd: path.dirname(pkg), version } };
   });
-  const { pkgs } = await prompt({ type: 'autocompleteMultiselect', name: 'pkgs', choices, message: '请选择需要更新版本的包', instructions: false });
+  const { pkgs } = await prompt({
+    type: 'autocompleteMultiselect',
+    name: 'pkgs',
+    choices,
+    message: '请选择需要更新版本的包',
+    instructions: false,
+  });
   return pkgs;
 }
 
 async function patchVersion(cwd: string) {
-  await versionBump({ cwd, commit: false, tag: false, noGitCheck: true, push: false, confirm: false, files: ['package.json'] });
+  await versionBump({
+    cwd,
+    commit: false,
+    tag: false,
+    noGitCheck: true,
+    push: false,
+    confirm: false,
+    files: ['package.json'],
+  });
 }
 
 (async function run() {
