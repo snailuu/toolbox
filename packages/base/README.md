@@ -16,10 +16,18 @@
 
   
 
-  ### v0.0.7
+  ## v0.0.8
 
   新增
 
+  - (F) toSyncFunc
+  
+  
+  
+  ### v0.0.7
+  
+  新增
+  
   - (D) verify
     - (D) base
       - (F) isUrl
@@ -32,13 +40,13 @@
     - (D) function
       - (F) isAsyncFunc
       - (F) isConstructor
-
+  
   更新 `verify` 分类下的函数， `isXXX`  等函数能直接断言其数据类型
-
+  
   ### v0.0.6
-
+  
   新增
-
+  
   - (D) func-handle
     - (F) onceFunc
     - (F) memoize
@@ -51,13 +59,13 @@
   修改
 
   - 修改 `getRandomString` 逻辑
-
   
-
+  
+  
   ### v0.0.5
-
+  
   新增
-
+  
   - （D) types
     - (T) THeadType
     - (T) TLastType
@@ -94,13 +102,13 @@
     - (F) isEmpty
     - (F) isFile
     - (F) isBlob
-
   
-
+  
+  
   ### v0.0.3
-
+  
   新增
-
+  
   - (D) utils
     - (F) isNull
     - (F) isNaN

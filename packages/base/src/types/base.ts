@@ -2,8 +2,6 @@ export type TFunc<T extends unknown[], R = any> = (...args: T) => R;
 
 export type TAnyFunc = TFunc<any[]>;
 
-export type TunknownFunc = TFunc<any[]>;
-
 export type TArgsType<T> = T extends (...args: infer A) => any ? A : any[];
 
 export type THeadType<T extends any[]> = T extends [infer H] ? H : T extends [infer H, ...any[]] ? H : never;

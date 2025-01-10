@@ -1,5 +1,7 @@
-import type { TAnyFunc, TArgsType } from '$/types/base';
+import type { GetArgs, GetReturnType, TAnyFunc, TArgsType } from '$/types/base';
+import { warning } from '$/common/warning';
 import { getNow } from '../getData';
+import { isAsyncFunc } from '../verify';
 import { cacheByReturn } from './cache';
 
 /**
@@ -168,5 +170,24 @@ export function chunkTask<F extends TAnyFunc>(task: F) {
         resolve(results);
       })();
     });
+  };
+}
+
+/**
+ * 将异步函数执行转换为同步函数执行
+ * @param fn 异步函数
+ * @returns 同步执行的异步函数
+ */
+export function toSyncFunc<F extends (...args: any[]) => Promise<any>>(
+  fn: F,
+): (...args: GetArgs<F>) => GetReturnType<F> {
+  if (!isAsyncFunc(fn)) {
+    warning('该方法仅支持异步函数转换, 当前返回为原函数,请检查参数是否为异步函数');
+    return fn;
+  }
+  let next = Promise.resolve();
+  return (...args: GetArgs<F>) => {
+    next = next.then(() => fn(...args));
+    return next as GetReturnType<F>;
   };
 }
