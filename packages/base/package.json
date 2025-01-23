@@ -1,7 +1,7 @@
 {
   "name": "@snailuu/base",
   "type": "module",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "private": false,
   "description": "基础工具库",
   "author": {
@@ -26,10 +26,9 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.esm.js",
-      "default": "./dist/index.umd.js"
-    },
-    "./*": "./dist/*"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
