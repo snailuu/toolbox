@@ -14,20 +14,22 @@
   - (T) 类型
   - -> 别名
 
-  
+  ## v0.0.9
+
+  修改
+
+  重新修改导出类型声明
 
   ## v0.0.8
 
   新增
 
   - (F) toSyncFunc
-  
-  
-  
+
   ### v0.0.7
-  
+
   新增
-  
+
   - (D) verify
     - (D) base
       - (F) isUrl
@@ -40,13 +42,13 @@
     - (D) function
       - (F) isAsyncFunc
       - (F) isConstructor
-  
-  更新 `verify` 分类下的函数， `isXXX`  等函数能直接断言其数据类型
-  
+
+  更新 `verify` 分类下的函数， `isXXX` 等函数能直接断言其数据类型
+
   ### v0.0.6
-  
+
   新增
-  
+
   - (D) func-handle
     - (F) onceFunc
     - (F) memoize
@@ -59,13 +61,11 @@
   修改
 
   - 修改 `getRandomString` 逻辑
-  
-  
-  
+
   ### v0.0.5
-  
+
   新增
-  
+
   - （D) types
     - (T) THeadType
     - (T) TLastType
@@ -74,17 +74,15 @@
     - (T) CookieOptions
     - (F) generateClassname
     - (F) generateCokkieInfo
-  
+
   修改
-  
+
   - 将 `any` 类型修改为 `unknown` 类型
-  
-  
-  
+
   ### v0.0.4
-  
+
   新增
-  
+
   - (D) cirDep
     - (F) getType
   - (D) types
@@ -102,13 +100,11 @@
     - (F) isEmpty
     - (F) isFile
     - (F) isBlob
-  
-  
-  
+
   ### v0.0.3
-  
+
   新增
-  
+
   - (D) utils
     - (F) isNull
     - (F) isNaN
@@ -119,22 +115,20 @@
     - (D) constant
       - (CV) EMPTY
       - (CV) STATIC_TYPE
-  - (D) types 
+  - (D) types
     - (T) TAllType
-  
-  
-  
+
   ### v0.0.2
-  
+
   新增
-  
+
   - (D) utils
     - (F) getNow
     - (F) getRandomString
     - (F) sleepAsync
-  
+
   ### v0.0.1
-  
+
   新增
-  
+
   - (F) sleep
