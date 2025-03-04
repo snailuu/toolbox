@@ -1,3 +1,12 @@
+interface IClConfig {
+  disableWarning: boolean;
+  [key: string]: any;
+}
+
+declare interface Window {
+  __ClConfig__: IClConfig;
+}
+
 declare const WXEnvironment: any;
 declare const __kraken__: any;
 declare const my: any;

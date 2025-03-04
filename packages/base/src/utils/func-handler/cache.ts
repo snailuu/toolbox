@@ -1,4 +1,4 @@
-import type { GetArgs, GetReturnType, TAnyFunc } from '$/types/base';
+import type { TAnyFunc, TGetArgs, TGetReturnType } from '$/types/base';
 import { INTERNAL_EMPTY } from '$/common/constant';
 
 /**
@@ -58,8 +58,8 @@ class MemoizeMap {
  * @param resolver 缓存键值解析函数, 默认为第一个参数
  * @returns 函数调用结果
  */
-export function memoize<F extends TAnyFunc>(func: F, resolver?: (...args: GetArgs<F>) => any) {
-  const memoized = function (...args: GetArgs<F>): GetReturnType<F> {
+export function memoize<F extends TAnyFunc>(func: F, resolver?: (...args: TGetArgs<F>) => any) {
+  const memoized = function (...args: TGetArgs<F>): TGetReturnType<F> {
     const key = resolver ? resolver(...args) : args[0];
     const cache = memoized.cache;
     if (cache.has(key)) {
@@ -80,7 +80,7 @@ export function memoize<F extends TAnyFunc>(func: F, resolver?: (...args: GetArg
  */
 export const cacheByReturn: <T extends () => any, R = ReturnType<T>>(
   cacheLoad: T
-) => (...args: GetArgs<R>) => GetReturnType<R> = (() => {
+) => (...args: TGetArgs<R>) => TGetReturnType<R> = (() => {
   if (Reflect?.apply) {
     return (cacheLoad) => {
       let cache: any = INTERNAL_EMPTY;

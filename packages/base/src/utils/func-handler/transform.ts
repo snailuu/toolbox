@@ -1,6 +1,6 @@
-import type { GetArgs, GetReturnType, TAnyFunc, TArgsType } from '$/types/base';
+import type { TAnyFunc, TArgsType, TGetArgs, TGetReturnType } from '$/types/base';
 import { warning } from '$/common/warning';
-import { getNow } from '../getData';
+import { getNow } from '../get-data';
 import { isAsyncFunc } from '../verify';
 import { cacheByReturn } from './cache';
 
@@ -180,14 +180,14 @@ export function chunkTask<F extends TAnyFunc>(task: F) {
  */
 export function toSyncFunc<F extends (...args: any[]) => Promise<any>>(
   fn: F,
-): (...args: GetArgs<F>) => GetReturnType<F> {
+): (...args: TGetArgs<F>) => TGetReturnType<F> {
   if (!isAsyncFunc(fn)) {
     warning('该方法仅支持异步函数转换, 当前返回为原函数,请检查参数是否为异步函数');
     return fn;
   }
   let next = Promise.resolve();
-  return (...args: GetArgs<F>) => {
+  return (...args: TGetArgs<F>) => {
     next = next.then(() => fn(...args));
-    return next as GetReturnType<F>;
+    return next as TGetReturnType<F>;
   };
 }
