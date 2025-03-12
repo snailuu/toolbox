@@ -3,5 +3,10 @@
     "text": "介绍",
     "link": "/guides/index",
     "activeMatch": "^/guides/"
+  },
+  {
+    "text": "日常",
+    "link": "/daily/index",
+    "activeMatch": "^/daily/"
   }
 ]
