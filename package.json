@@ -44,6 +44,10 @@
     "dev:doc": "rspress dev",
     "build:doc": "rspress build"
   },
+  "dependencies": {
+    "@snailuu/base": "workspace:^",
+        "web-vitals": "^4.2.4"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^3.12.0",
     "@commitlint/cli": "^19.6.1",
