@@ -1,4 +1,4 @@
-name: Deploy API doc to Pages
+name: API doc Pages
 
 on:
   push:
@@ -38,7 +38,7 @@ jobs:
         run: pnpm install
       - name: Build with Rspress
         run: |
-          pnpm run build
+          pnpm run build:doc
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
