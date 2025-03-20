@@ -1,0 +1,39 @@
+name: "💬 Discussion"
+description: "Start a discussion about the project or packages"
+title: "[Discuss]: Discussion Title"
+labels: [discussion]
+assignees: []
+body:
+  - type: dropdown
+    id: scope
+    attributes:
+      label: "Discussion Scope"
+      description: "What is the scope of this discussion?"
+      options:
+        - General project discussion
+        - Core package
+        - CLI package
+        - UI package
+        - Utils package
+        - Documentation
+        - Monorepo structure
+        - Other (please specify)
+    validations:
+      required: true
+  - type: textarea
+    id: topic
+    attributes:
+      label: Discussion Topic
+      description: "Please provide a clear and concise topic for discussion."
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: "If applicable, add screenshots to help explain your topic."
+  - type: textarea
+    id: links
+    attributes:
+      label: Links
+      description: "Include any relevant links that could provide more context for the discussion."

@@ -1,0 +1,11 @@
+## To encourage contributors to use issue templates, we don't allow blank issues
+blank_issues_enabled: false
+
+contact_links:
+  - name: "\u2753 Discord Community Support"
+    url: "https://discord.gg/your-discord-link"
+    about: "Please ask support questions or discuss suggestions/enhancements here."
+  
+  - name: "\u1F4DA Documentation"
+    url: "https://github.com/your-org/your-repo/tree/main/docs"
+    about: "Check out our documentation before creating an issue."
