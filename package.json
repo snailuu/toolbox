@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "@snailuu/base": "workspace:^",
-        "web-vitals": "^4.2.4"
+    "web-vitals": "^4.2.4"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.12.0",
