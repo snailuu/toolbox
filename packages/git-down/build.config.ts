@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { defineBuildConfig } from 'unbuild';
 
-export default defineBuildConfig({
+export default defineBuildConfig([{
   // 入口文件配置
   entries: ['src/index'],
   // 输出目录
@@ -24,4 +24,19 @@ export default defineBuildConfig({
     },
   },
   failOnWarn: false,
-});
+}, {
+  entries: ['src/cli'],
+  outDir: 'bin',
+  // 路径别名
+  alias: { $: path.resolve(__dirname, 'src') },
+  clean: true,
+  sourcemap: false,
+  rollup: {
+    // 内联依赖
+    inlineDependencies: true,
+    esbuild: {
+      minify: true,
+    },
+  },
+  failOnWarn: false,
+}]);

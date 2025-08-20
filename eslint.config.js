@@ -11,6 +11,7 @@ export default antfu({
     '**/dist',
     '**/.temp',
     '**/*.svg',
+    '**/bin',
   ],
   rules: [
 

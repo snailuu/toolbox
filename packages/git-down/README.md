@@ -77,6 +77,20 @@ console.log(urlInfo);
 // }
 ```
 
+### 使用 CLI 命令
+
+查看使用命令
+
+```shell
+gdd --help
+```
+
+开始使用
+
+```shell
+gdd https://github.com/snailuu/toolbox/tree/main/document
+```
+
 ## 选项
 
 | 选项   | 类型   | 默认值       | 描述               |
@@ -88,6 +102,12 @@ console.log(urlInfo);
 
 下载过程中会频繁修改执行目录，请勿在运行期间执行文件相关操作，除非你清楚执行目录的修改行为。
 
-## 许可证
+## 更新
 
-MIT
+### v0.2.0
+
+增加 `gd` 命令行工具提供下载能力
+
+### v0.1.0
+
+实现基本的文件下载功能
