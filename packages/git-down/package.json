@@ -1,9 +1,9 @@
 {
   "name": "@snailuu/git-down",
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "packageManager": "pnpm@9.14.4",
-  "description": "下载 git 仓库或单文件",
+  "description": "下载 git 仓库或文件",
   "author": {
     "name": "snailuu",
     "email": "snailuu@foxmail.com"
@@ -48,7 +48,7 @@
   "scripts": {
     "stub": "unbuild --stub",
     "build": "unbuild",
-    "test": "vitest run",
+    "test": "cross-env CI=true vitest run",
     "prepublishOnly": "pnpm build && pnpm test"
   },
   "dependencies": {

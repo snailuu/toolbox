@@ -15,7 +15,7 @@ export interface GitUrlInfo {
   owner: string;
   /** 仓库名称 */
   project: string;
-  /** 分支名称 */
+  /** 分支 */
   branch: string;
   /** 文件路径 */
   pathname: string;
